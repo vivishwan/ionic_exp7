@@ -1,0 +1,32 @@
+<!-- student-list.page.html -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Students List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item text-wrap *ngFor="let item of studentsData">
+      <ion-label>
+        <h2>Id:- {{item.id}}</h2>
+        <h3>Name:- {{item.name}}</h3>
+        <h3>age:- {{item.age }}</h3>
+        <h3>City:- {{item.address}}</h3>
+      </ion-label>
+
+      <ion-button
+        color="secondary"
+        size="small"
+        routerLink="/student-edit/{{item.id}}"
+      >
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+      <ion-button color="tertiary" size="small" (click)="delete(item)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-button [routerLink]="['/student-create']"> Add Student </ion-button>
+</ion-content>
